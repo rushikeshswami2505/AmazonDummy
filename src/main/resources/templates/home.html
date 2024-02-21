@@ -21,17 +21,21 @@
             </div>
         </div>
         <div class="nav-search">
-            <select class="search-select">
-                <option>All</option>
-            </select>
-            <input class="search-input" placeholder="Search Amazon">
-            <div class="search-icon">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+            <form class="nav-search-element" action="/search" method="GET">
+                <select class="search-select" name="category">
+                    <option>All</option>
+                </select>
+                <input class="search-input" name="search" placeholder="Search Amazon">
+                <div class="search-icon">
+                    <button id="go" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </form>
         </div>
         <div class="nav-sign border">
             <p><span>Hello, Sign in</span></p>
-            <p class="nav-second"><a href="sign_in">Account & Lists</a></p>
+            <p class="nav-second">Account & Lists</p>
         </div>
         <div class="nav-return border">
             <p><span>Returns</span></p>
