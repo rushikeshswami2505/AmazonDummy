@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -27,11 +29,24 @@ public class StoreController {
 
     @GetMapping("/search")
     public String search(@RequestParam String category, @RequestParam String search, Model model) {
-        model.addAttribute("searchKeyword", search);
+//        model.addAttribute("searchKeyword", search);
         Store[] stores = storeService.getProductsByKeyword(search);
         model.addAttribute("products",stores);
 //        System.out.println(category+" "+search+" "+stores);
         return "products";
     }
+
+    @GetMapping("/product_detail/{productId}")
+    public String productDetail(@PathVariable int productId, Model model) {
+        Store product = storeService.getProductById(productId);
+        if (product == null) {
+            // Handle the case where the product with the given ID is not found
+            return "error";
+        }
+        model.addAttribute("product", product);
+        System.out.println("Here reached");
+        return "product_view";
+    }
+
 
 }

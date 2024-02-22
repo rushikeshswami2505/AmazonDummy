@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=d  evice-width, initial-scale=1.0">
+    <title th:text="${product.title}">Product Detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #232f3e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            flex: 1;
+            max-width: 300px;
+            margin-right: 20px;
+        }
+
+        .product-details {
+            flex: 2;
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #e44d26;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            margin-bottom: 20px;
+        }
+
+        .product-category {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .rating-icon {
+            color: #f8ce0b;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 th:text="${product.title}">Product Detail</h1>
+</header>
+
+<div class="product-container">
+    <div class="product-image">
+        <img th:src="${product.image}" th:alt="${product.title}" style="max-width: 100%;">
+    </div>
+    <div class="product-details">
+        <div class="product-title" th:text="${product.title}"></div>
+        <div class="product-price" th:text="'$' + ${product.price}"></div>
+        <div class="product-description" th:text="${product.description}"></div>
+        <div class="product-category" th:text="${product.category}"></div>
+
+    </div>
+</div>
+
+</body>
+</html>
