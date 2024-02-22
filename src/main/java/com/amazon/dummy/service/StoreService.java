@@ -25,4 +25,21 @@ public class StoreService {
 
         return null;
     }
+
+    public Store getProductById(int productId) {
+        String apiurl = API_URL;
+        RestTemplate restTemplate = new RestTemplate();
+
+        Store[] allProducts = restTemplate.getForObject(apiurl, Store[].class);
+
+        if (allProducts != null) {
+            for(Store s: allProducts){
+                if(s.getId()==productId){
+                    return  s;
+                }
+            }
+        }
+
+        return null;
+    }
 }

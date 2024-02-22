@@ -122,7 +122,12 @@
         <div class="box-content">
             <h3 th:text="${product.title}"></h3>
             <p th:text="'$' + ${product.price}"></p>
-            <div class="box-img" th:style="'background-image: url(' + ${product.image} + ');'"></div>
+                <a th:href="@{/product_detail/{productId}(productId=${product.id})}">
+                    <div class="box-img" th:style="'background-image: url(' + ${product.image} + ');'"></div>
+                </a>
+            <!--                <a th:href="@{/product_detail/{product}(product=${product})}">-->
+<!--                    <div class="box-img" th:style="'background-image: url(' + ${product.image} + ');'"></div>-->
+<!--                </a>-->
             <p>See more</p>
         </div>
     </div>
@@ -187,23 +192,3 @@
 </footer>
 </body>
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Products</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <span th:text="${searchKeyword}"></span>-->
-<!--<ul>-->
-<!--    <li th:each="product : ${products}">-->
-<!--        <h3 th:text="${product.title}"></h3>-->
-<!--        <p th:text="${product.description}"></p>-->
-<!--        <p th:text="${product.price}"></p>-->
-<!--    </li>-->
-<!--</ul>-->
-
-
-<!--</body>-->
-<!--</html>-->
