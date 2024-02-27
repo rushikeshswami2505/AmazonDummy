@@ -6,7 +6,6 @@ import org.springframework.context.annotation.*;
 
 @SpringBootApplication
 public class DummyApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(DummyApplication.class, args);
 		System.out.println("Good morning");

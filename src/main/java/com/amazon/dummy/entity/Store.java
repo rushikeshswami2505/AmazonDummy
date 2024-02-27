@@ -9,6 +9,8 @@ public class Store {
     private String image;
     private Rating rating;
 
+
+    private int quantity;
     // getters and setters
 
     // Nested class for Rating
@@ -70,6 +72,15 @@ public class Store {
     public void setRating(Rating rating) {
         this.rating = rating;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
 
     public static class Rating {
         private float rate;

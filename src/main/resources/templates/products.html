@@ -43,6 +43,16 @@
             align-items: center;
             justify-content: center;
         }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+            text-decoration:none;
+            cursor:pointer;
+        }
     </style>
 
 </head>
@@ -81,10 +91,10 @@
             <p><span>Returns</span></p>
             <p class="nav-second">& Orders</p>
         </div>
-        <div class="nav-cart border">
+        <a th:href="@{/cart-list}"><div class="nav-cart border">
             <i class="fa-solid fa-cart-shopping"></i>
             Cart
-        </div>
+        </div></a>
     </div>
 
     <div class="panel">
@@ -125,9 +135,6 @@
                 <a th:href="@{/product_detail/{productId}(productId=${product.id})}">
                     <div class="box-img" th:style="'background-image: url(' + ${product.image} + ');'"></div>
                 </a>
-            <!--                <a th:href="@{/product_detail/{product}(product=${product})}">-->
-<!--                    <div class="box-img" th:style="'background-image: url(' + ${product.image} + ');'"></div>-->
-<!--                </a>-->
             <p>See more</p>
         </div>
     </div>

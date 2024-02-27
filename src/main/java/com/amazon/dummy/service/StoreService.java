@@ -1,10 +1,13 @@
 package com.amazon.dummy.service;
 
+import com.amazon.dummy.entity.CartItem;
 import com.amazon.dummy.entity.Store;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StoreService {
@@ -42,4 +45,24 @@ public class StoreService {
 
         return null;
     }
+
+    public List<Store> getProductsByList(List<CartItem> cartItems) {
+        List<Long> productIds = cartItems.stream()
+                .map(CartItem::getProductId)
+                .collect(Collectors.toList());
+
+        String apiurl = API_URL;
+        RestTemplate restTemplate = new RestTemplate();
+
+        Store[] allProducts = restTemplate.getForObject(apiurl, Store[].class);
+
+        if (allProducts != null) {
+            return Arrays.stream(allProducts)
+                    .filter(product -> productIds.contains((long) product.getId()))
+                    .collect(Collectors.toList());
+        }
+
+        return null;
+    }
+
 }
